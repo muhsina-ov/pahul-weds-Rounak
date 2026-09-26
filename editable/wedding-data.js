@@ -99,5 +99,12 @@ window.WEDDING_DATA = {
     sceneHands: "./editable/assets/scene-hands.jpg",
     coupleLanterns: "./editable/assets/couple-lanterns.png",
     sunsetSky: "./editable/assets/sunset-sky.jpg",
+    ogImage: "./editable/assets/og-image.jpg",
+  },
+  meta: {
+    title: "Pahul & Rounak — Wedding Invitation | Jathoul Family",
+    description: "With warm hearts, the Jathoul Family cordially invites you to the wedding celebrations of Rounak Singh & Pahul Kaur on Saturday, 19 December 2026 at Golden Heritage.",
+    url: "https://pahul-weds-rounak.invitestory.in/",
+    image: "https://pahul-weds-rounak.invitestory.in/editable/assets/og-image.jpg",
   },
 };
