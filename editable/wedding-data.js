@@ -5,8 +5,8 @@
 
 window.WEDDING_DATA = {
   couple: {
-    groom: "Rounak",
-    bride: "Pahul",
+    groom: "Rounak Singh",
+    bride: "Pahul Kaur",
     groomFull: "Rounak Singh",
     brideFull: "Pahul Kaur",
     initials: "R & P",
@@ -24,7 +24,7 @@ window.WEDDING_DATA = {
   hero: {
     kicker: "Jathoul Family warmly welcomes you",
     eyebrow: "Wedding Celebration",
-    blessing: "“oh meri chadke jan jani yaar ne kholea pyaar da buha.. gal sunla darjiya ve mainu kurta suha”",
+    blessing: "",
   },
   story: {
     title: "The Two of Them",
@@ -63,7 +63,7 @@ window.WEDDING_DATA = {
       no: "19 Dec",
       title: "Baraat Departure & Anand Karaj",
       when: "Saturday, 19 December 2026 • 8:30 AM",
-      text: "🐎 Baraat Departure at 8:30 AM sharp, proceeding to Golden Heritage for the sacred Anand Karaj vows as Rounak & Pahul unite in holy matrimony.",
+      text: "🐎 Baraat Departure at 8:30 AM sharp, proceeding to Golden Heritage for the sacred Anand Karaj vows as Rounak Singh & Pahul Kaur unite in holy matrimony.",
     },
     {
       no: "20 Dec",
@@ -73,14 +73,13 @@ window.WEDDING_DATA = {
     },
   ],
   footer: {
-    line1: "“oh meri chadke jan jani yaar ne kholea pyaar da buha.. gal sunla darjiya ve mainu kurta suha”",
+    line1: "Together with our families,",
     line2: "Come celebrate, bless the couple, and dance with us!",
-    signoff: "With warm invites & heartfelt blessings, Jathoul Family & Rounak & Pahul",
+    signoff: "With warm invites & heartfelt blessings, Jathoul Family & Rounak Singh & Pahul Kaur",
   },
   music: {
     title: "Kurta",
     artist: "Amrinder Gill",
-    lyrics: "“oh meri chadke jan jani yaar ne kholea pyaar da buha.. gal sunla darjiya ve mainu kurta suha”",
     audioSrc: "./editable/assets/kurta-song.mp3",
   },
   images: {
@@ -104,7 +103,7 @@ window.WEDDING_DATA = {
     ogImage: "./editable/assets/og-image.jpg",
   },
   meta: {
-    title: "Rounak & Pahul — Wedding Invitation | Jathoul Family",
+    title: "Rounak Singh & Pahul Kaur — Wedding Invitation | Jathoul Family",
     description: "Jathoul Family cordially invites you to the wedding of Rounak Singh & Pahul Kaur on 19 December 2026 at Golden Heritage.",
     url: "https://rounak-weds-pahul.invitingyou.top/",
     image: "https://rounak-weds-pahul.invitingyou.top/editable/assets/og-image.jpg",

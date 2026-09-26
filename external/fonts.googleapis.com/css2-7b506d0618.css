@@ -4,3 +4,10 @@
   font-weight: 400;
   src: url(../fonts.gstatic.com/s/marcellus/v14/wEO_EBrOk8hQLDvIAF8FVPAN3Eo.woff2) format('woff2');
 }
+@font-face {
+  font-family: 'Great Vibes';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/greatvibes/v21/greatvibes.woff2) format('woff2');
+}
