@@ -5,8 +5,10 @@
 
 window.WEDDING_DATA = {
   couple: {
-    bride: "Pahul",
     groom: "Rounak",
+    bride: "Pahul",
+    groomFull: "Rounak Singh",
+    brideFull: "Pahul Kaur",
     initials: "R & P",
   },
   dateISO: "2026-12-19T08:30:00+05:30",
@@ -27,15 +29,15 @@ window.WEDDING_DATA = {
   story: {
     title: "The Two of Them",
     subtitle: "A journey of laughter, heartfelt promises & lifelong love",
-    bride: {
-      name: "Pahul Kaur",
-      role: "The Bride",
-      text: "A soul of endless creativity, turning every problem into possibility. With a heart overflowing with love and care, she brings warmth and magic everywhere.",
-    },
     groom: {
       name: "Rounak Singh",
       role: "The Groom",
       text: "Responsible and always there when needed, listens to worries with patience and makes everything feel better. And with his love for Mexican food, the perfect mix of comfort, peace and fun.",
+    },
+    bride: {
+      name: "Pahul Kaur",
+      role: "The Bride",
+      text: "A soul of endless creativity, turning every problem into possibility. With a heart overflowing with love and care, she brings warmth and magic everywhere.",
     },
   },
   chapters: [
@@ -88,8 +90,8 @@ window.WEDDING_DATA = {
     heroPalace: "./editable/assets/hero-palace.jpg",
     bougainvillea: "./editable/assets/bougainvillea.png",
     goldFlourish: "./editable/assets/gold-flourish.png",
-    portraitBride: "./editable/assets/portrait-bride.jpg",
     portraitGroom: "./editable/assets/portrait-groom.jpg",
+    portraitBride: "./editable/assets/portrait-bride.jpg",
     mapPlate: "./editable/assets/map-plate.jpg",
     weddingCar: "./editable/assets/wedding-car.png",
     gardenCourtyard: "./editable/assets/garden-courtyard.jpg",
@@ -102,7 +104,7 @@ window.WEDDING_DATA = {
     ogImage: "./editable/assets/og-image.jpg",
   },
   meta: {
-    title: "Pahul & Rounak — Wedding Invitation | Jathoul Family",
+    title: "Rounak & Pahul — Wedding Invitation | Jathoul Family",
     description: "Jathoul Family cordially invites you to the wedding of Rounak Singh & Pahul Kaur on 19 December 2026 at Golden Heritage.",
     url: "https://rounak-weds-pahul.invitingyou.top/",
     image: "https://rounak-weds-pahul.invitingyou.top/editable/assets/og-image.jpg",
