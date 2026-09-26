@@ -42,22 +42,34 @@ window.WEDDING_DATA = {
   },
   chapters: [
     {
+      no: "09 Dec",
+      title: "Geet Sangeet",
+      when: "09 December — 12 December 2026",
+      text: "Musical evenings celebrating with traditional Geet Sangeet, folk songs, laughter, and family festivities.",
+    },
+    {
+      no: "14 Dec",
+      title: "Arambh Shri Akhand Path Sahib",
+      when: "Monday, 14 December 2026",
+      text: "Commencing the sacred wedding celebrations with the auspicious Arambh of Shri Akhand Path Sahib, invoking the divine blessings of Waheguru.",
+    },
+    {
       no: "16 Dec",
       title: "Bhog Shri Akhand Path Sahib & Shagan",
       when: "Wednesday, 16 December 2026",
-      text: "Commencing the sacred celebrations with the divine blessings of Waheguru at the Bhog of Shri Akhand Path Sahib, followed by the auspicious Shagan ceremony with family and elders.",
+      text: "🙏 Bhog Shri Akhand Path Sahib\n✨ Shagan",
     },
     {
       no: "17 Dec",
       title: "Haldi, Jago & DJ Night",
       when: "Thursday, 17 December 2026",
-      text: "Bathed in warm golden Haldi blessings, followed by an electrifying traditional Jago procession under the night sky and dancing with joy at DJ Night.",
+      text: "🌼 Haldi\n🔥 Jago\n🎧 DJ Night",
     },
     {
       no: "18 Dec",
       title: "Bride’s Shagan & Mehndi",
       when: "Friday, 18 December 2026",
-      text: "🌸 Morning: Auspicious Bride's Shagan.\n🌿 Evening: Vibrant Mehndi celebration adorned with intricate henna artistry, music, and timeless folk celebrations.",
+      text: "🌸 Bride’s Shagan — Morning\n🌿 Mehndi — Evening",
     },
     {
       no: "19 Dec",
@@ -69,7 +81,7 @@ window.WEDDING_DATA = {
       no: "20 Dec",
       title: "Grand Wedding Reception",
       when: "Sunday, 20 December 2026 • 5:00 PM",
-      text: "✨ An evening of grand celebration, feast, music, and toasts to congratulate the newlyweds as they embark on their beautiful life together.",
+      text: "✨ Wedding Reception — an evening of celebration, feast, toasts, and dancing to celebrate the newlyweds.",
     },
   ],
   footer: {
