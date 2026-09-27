@@ -5,7 +5,52 @@
   <source src="./rp.mp3" type="audio/mpeg" />
 </audio>
 
-<button id="music-controller" type="button" aria-label="Mute or unmute music" class="flex h-12 w-12 items-center justify-center rounded-full glass-plate shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-md" style="position: fixed !important; bottom: 20px !important; bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important; right: 20px !important; right: max(20px, env(safe-area-inset-right, 20px)) !important; top: auto !important; left: auto !important; z-index: 999999 !important; background: rgba(253, 248, 239, 0.92); border: 1.5px solid rgba(212, 175, 55, 0.65); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);" title="Mute Music">
+<style>
+#music-lyrics-card {
+  position: fixed !important;
+  bottom: 80px !important;
+  bottom: max(80px, calc(env(safe-area-inset-bottom, 20px) + 60px)) !important;
+  right: 20px !important;
+  right: max(20px, env(safe-area-inset-right, 20px)) !important;
+  z-index: 999998 !important;
+  max-width: 320px !important;
+  width: calc(100vw - 40px) !important;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#music-lyrics-card.lyrics-hidden {
+  opacity: 0 !important;
+  transform: translateY(14px) scale(0.95) !important;
+  pointer-events: none !important;
+}
+#music-lyrics-card.lyrics-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+</style>
+
+<!-- Music Lyrics Popup Card -->
+<div id="music-lyrics-card" class="lyrics-hidden" style="background: rgba(253, 248, 239, 0.96); border: 1.5px solid rgba(212, 175, 55, 0.65); box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18), 0 2px 10px rgba(212, 175, 55, 0.2); border-radius: 20px; padding: 14px 16px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); text-align: center;">
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; border-bottom: 1px solid rgba(212, 175, 55, 0.25); padding-bottom: 6px;">
+    <div style="display: flex; align-items: center; gap: 6px;">
+      <svg style="width: 14px; height: 14px; color: #c59b27;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+      </svg>
+      <span id="lyrics-song-title" style="font-family: inherit; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4a3525;">Kurta • Amrinder Gill</span>
+    </div>
+    <button id="music-lyrics-close" type="button" aria-label="Close lyrics" style="background: rgba(212, 175, 55, 0.12); border: none; cursor: pointer; color: #7c6855; font-size: 13px; line-height: 1; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; transition: background 0.2s;">✕</button>
+  </div>
+  <p id="lyrics-song-text" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.02rem; font-style: italic; line-height: 1.42; color: #3d2412; margin: 0; padding: 4px 2px;">
+    “oh meri chadke jan jani yaar ne kholea pyaar da buha.. gal sunla darjiya ve mainu kurta suha”
+  </p>
+  <div style="margin-top: 8px; font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: #a38546;">
+    Tap button again to mute
+  </div>
+</div>
+
+<button id="music-controller" type="button" aria-label="Mute or unmute music" class="flex h-12 w-12 items-center justify-center rounded-full glass-plate shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-md" style="position: fixed !important; bottom: 20px !important; bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important; right: 20px !important; right: max(20px, env(safe-area-inset-right, 20px)) !important; top: auto !important; left: auto !important; z-index: 999999 !important; background: rgba(253, 248, 239, 0.92); border: 1.5px solid rgba(212, 175, 55, 0.65); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);" title="Show Lyrics">
   <!-- Playing / Unmuted Sound Icon -->
   <svg id="music-on-icon" class="h-5 w-5 text-primary transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" fill-opacity="0.15"></polygon>
@@ -23,15 +68,54 @@
 <script>
 (function() {
   const audio = document.getElementById('wedding-audio');
-  if (audio && window.WEDDING_DATA && window.WEDDING_DATA.music && window.WEDDING_DATA.music.audioSrc) {
-    if (!audio.src || audio.src.includes('kurta-song.mp3')) {
-      audio.src = window.WEDDING_DATA.music.audioSrc;
-    }
-  }
   const controller = document.getElementById('music-controller');
   const onIcon = document.getElementById('music-on-icon');
   const offIcon = document.getElementById('music-off-icon');
+  const lyricsCard = document.getElementById('music-lyrics-card');
+  const lyricsClose = document.getElementById('music-lyrics-close');
+  const lyricsText = document.getElementById('lyrics-song-text');
+  const lyricsTitle = document.getElementById('lyrics-song-title');
+
   let isPlaying = false;
+  let isLyricsOpen = false;
+
+  // Initialize data from WEDDING_DATA
+  if (window.WEDDING_DATA && window.WEDDING_DATA.music) {
+    if (window.WEDDING_DATA.music.lyrics && lyricsText) {
+      lyricsText.textContent = window.WEDDING_DATA.music.lyrics;
+    }
+    if (lyricsTitle) {
+      const t = window.WEDDING_DATA.music.title || 'Kurta';
+      const a = window.WEDDING_DATA.music.artist || 'Amrinder Gill';
+      lyricsTitle.textContent = `${t} • ${a}`;
+    }
+    if (audio && window.WEDDING_DATA.music.audioSrc) {
+      if (!audio.src || audio.src.includes('kurta-song.mp3')) {
+        audio.src = window.WEDDING_DATA.music.audioSrc;
+      }
+    }
+  }
+
+  function showLyrics() {
+    isLyricsOpen = true;
+    if (lyricsCard) {
+      lyricsCard.classList.remove('lyrics-hidden');
+      lyricsCard.classList.add('lyrics-visible');
+    }
+    if (controller) {
+      controller.setAttribute('title', 'Mute Music & Close Lyrics');
+      controller.setAttribute('aria-label', 'Mute music and close lyrics');
+      controller.style.borderColor = 'rgba(212, 175, 55, 0.9)';
+    }
+  }
+
+  function hideLyrics() {
+    isLyricsOpen = false;
+    if (lyricsCard) {
+      lyricsCard.classList.remove('lyrics-visible');
+      lyricsCard.classList.add('lyrics-hidden');
+    }
+  }
 
   function setPlayingState(playing) {
     isPlaying = playing;
@@ -39,8 +123,8 @@
       if (onIcon) onIcon.classList.remove('hidden');
       if (offIcon) offIcon.classList.add('hidden');
       if (controller) {
-        controller.setAttribute('title', 'Mute Music');
-        controller.setAttribute('aria-label', 'Mute music');
+        controller.setAttribute('title', isLyricsOpen ? 'Mute Music & Close Lyrics' : 'Show Lyrics');
+        controller.setAttribute('aria-label', isLyricsOpen ? 'Mute music and close lyrics' : 'Show lyrics');
         controller.style.borderColor = 'rgba(212, 175, 55, 0.7)';
       }
     } else {
@@ -72,13 +156,40 @@
   if (controller) {
     controller.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (isPlaying) {
-        pauseMusic();
-      } else {
+      if (!isPlaying) {
+        // 3rd click: unmute and play music
+        hideLyrics();
         playMusic();
+      } else if (!isLyricsOpen) {
+        // 1st click: show lyrics of playing music
+        showLyrics();
+      } else {
+        // 2nd click: mute song and close lyrics
+        hideLyrics();
+        pauseMusic();
       }
     });
   }
+
+  if (lyricsClose) {
+    lyricsClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hideLyrics();
+      if (controller && isPlaying) {
+        controller.setAttribute('title', 'Show Lyrics');
+      }
+    });
+  }
+
+  // Close lyrics when clicking outside lyrics card
+  document.addEventListener('click', (e) => {
+    if (isLyricsOpen && lyricsCard && !lyricsCard.contains(e.target) && !controller.contains(e.target)) {
+      hideLyrics();
+      if (controller && isPlaying) {
+        controller.setAttribute('title', 'Show Lyrics');
+      }
+    }
+  });
 
   // Attempt autoplay immediately when loaded
   playMusic();

@@ -92,6 +92,7 @@ window.WEDDING_DATA = {
   music: {
     title: "Kurta",
     artist: "Amrinder Gill",
+    lyrics: "“oh meri chadke jan jani yaar ne kholea pyaar da buha.. gal sunla darjiya ve mainu kurta suha”",
     audioSrc: "./editable/assets/rp.mp3",
   },
   images: {
