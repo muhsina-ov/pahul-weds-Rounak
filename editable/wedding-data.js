@@ -92,7 +92,7 @@ window.WEDDING_DATA = {
   music: {
     title: "Kurta",
     artist: "Amrinder Gill",
-    audioSrc: "./editable/assets/kurta-song.mp3",
+    audioSrc: "./editable/assets/rp.mp3",
   },
   images: {
     seal: "./editable/assets/invite-seal.png",
