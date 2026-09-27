@@ -23,7 +23,7 @@ window.WEDDING_DATA = {
   dressCode: "Traditional Royal Punjabi Elegance & Festive Pastels",
   hero: {
     kicker: "Jathoul Family warmly welcomes you",
-    eyebrow: "Wedding Celebration",
+    eyebrow: "Open Invite",
     blessing: "",
   },
   story: {
