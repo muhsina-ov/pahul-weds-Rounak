@@ -87,7 +87,7 @@ window.WEDDING_DATA = {
   footer: {
     line1: "Together with our families,",
     line2: "Come celebrate, bless the couple, and dance with us!",
-    signoff: "With warm invites & heartfelt blessings, Jathoul Family & Rounak Singh & Pahul Kaur",
+    signoff: "With warm invites & heartfelt blessings,\nJathoul Family",
   },
   music: {
     title: "Kurta",
